@@ -23,9 +23,9 @@ public class ConsumerDemo {
 
         String bootstrapServers = "127.0.0.1:9092";
         String groupId = "my_kafka_group";
+
         //create consumer properties
         Properties properties = new Properties();
-
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG , StringDeserializer.class.getName()); //converts bytes to string
@@ -34,7 +34,6 @@ public class ConsumerDemo {
 
         //Create consumer
         KafkaConsumer<String,String> consumer = new KafkaConsumer<String, String>(properties);
-
 
         //subscribe consumer to topics
         consumer.subscribe(Arrays.asList("java_topic"));
